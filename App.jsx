@@ -1,4 +1,12 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+// ─── PASTE YOUR SUPABASE CREDENTIALS HERE ───────────────────────────────────
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+// ────────────────────────────────────────────────────────────────────────────
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 var P={
   bs:{s:"Spring",n:"Bright Spring",e:"🌺",d:"Brightness",d2:"Warmth",mu:"H:Med-warm V:Med C:High",fl:"Bright Winter and True Spring",si:["bw","ts"],
@@ -185,6 +193,17 @@ export default function App(){
   var stWCam=useState(false),wardCamOn=stWCam[0],setWardCamOn=stWCam[1];
   var stWRes=useState(null),wardRes=stWRes[0],setWardRes=stWRes[1];
   var stWLoad=useState(false),wardLoad=stWLoad[0],setWardLoad=stWLoad[1];
+
+  // Auth state
+  var stUser=useState(null),user=stUser[0],setUser=stUser[1];
+  var stAuthLoad=useState(true),authLoading=stAuthLoad[0],setAuthLoading=stAuthLoad[1];
+  var stAuthView=useState("signin"),authView=stAuthView[0],setAuthView=stAuthView[1];
+  var stEmail=useState(""),email=stEmail[0],setEmail=stEmail[1];
+  var stPass=useState(""),pass=stPass[0],setPass=stPass[1];
+  var stAuthErr=useState(""),authErr=stAuthErr[0],setAuthErr=stAuthErr[1];
+  var stAuthMsg=useState(""),authMsg=stAuthMsg[0],setAuthMsg=stAuthMsg[1];
+  var stAuthBusy=useState(false),authBusy=stAuthBusy[0],setAuthBusy=stAuthBusy[1];
+
   var wardVidRef=useRef(null);
   var wardCanRef=useRef(null);
   var wardStreamRef=useRef(null);
@@ -195,12 +214,44 @@ export default function App(){
 
   useEffect(function(){
     try{var s=document.createElement("style");s.textContent='@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");*{font-family:"Quicksand",sans-serif !important;box-sizing:border-box}';document.head.appendChild(s);}catch(e){}
-    async function loadSaved(){
-      if(!window.storage) return;
-      try{var r=await window.storage.get("myhue_result");if(r&&r.value)setSaved(JSON.parse(r.value));}catch(e){}
-    }
-    loadSaved();
+
+    // Check if user is already logged in
+    supabase.auth.getSession().then(function(r){
+      setUser(r.data.session?.user ?? null);
+      setAuthLoading(false);
+    });
+
+    // Listen for login/logout changes
+    var sub=supabase.auth.onAuthStateChange(function(_,session){
+      setUser(session?.user ?? null);
+    });
+    return function(){ sub.data.subscription.unsubscribe(); };
   },[]);
+
+  async function handleSignIn(){
+    setAuthBusy(true);setAuthErr("");
+    var r=await supabase.auth.signInWithPassword({email:email,password:pass});
+    if(r.error)setAuthErr(r.error.message);
+    setAuthBusy(false);
+  }
+  async function handleSignUp(){
+    setAuthBusy(true);setAuthErr("");setAuthMsg("");
+    var r=await supabase.auth.signUp({email:email,password:pass});
+    if(r.error){setAuthErr(r.error.message);}
+    else{setAuthMsg("Check your email to confirm your account, then sign in.");}
+    setAuthBusy(false);
+  }
+  async function handleForgot(){
+    if(!email){setAuthErr("Enter your email address first.");return;}
+    setAuthBusy(true);setAuthErr("");
+    await supabase.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin});
+    setAuthMsg("Password reset link sent — check your email.");
+    setAuthBusy(false);
+  }
+  async function handleSignOut(){
+    await supabase.auth.signOut();
+    setUser(null);setRes(null);setSaved(null);setView("home");
+  }
 
   var go=useCallback(function(x){setFade(false);setTimeout(function(){setView(x);setFade(true);try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}},250);},[]);
   function doA(qid,val){var nx=Object.assign({},ans);nx[qid]=val;setAns(nx);if(qi<QS.length-1){setFade(false);setTimeout(function(){setQi(qi+1);setFade(true);},190);}else{var r=solve(nx);setRes(r);saveResult(r,nx);go("result");}}
@@ -255,6 +306,68 @@ export default function App(){
 
   var p=res?P[res]:null;var sp=saved&&saved.res?P[saved.res]:null;var feat=ans.q11||"medium";var pKey=feat==="bold"?"b":feat==="delicate"?"d":"m";
 
+  // Show loading spinner while checking login status
+  if(authLoading) return (
+    <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(170deg,#FAF6EE,#EDE7DC)"}}>
+      <div style={{fontSize:13,letterSpacing:3,textTransform:"uppercase",color:"#9A9088"}}>Loading…</div>
+    </div>
+  );
+
+  // Show login/signup screen if not logged in
+  if(!user) return (
+    <div style={{minHeight:"100vh",background:"linear-gradient(170deg,#FAF6EE 0%,#EDE7DC 100%)",display:"flex",alignItems:"center",justifyContent:"center",padding:"20px"}}>
+      <div style={{width:"100%",maxWidth:400,background:"rgba(255,253,248,.95)",borderRadius:20,padding:"40px 32px",border:"1px solid rgba(80,70,60,.1)",boxShadow:"0 8px 40px rgba(80,70,60,.08)"}}>
+        <div style={{textAlign:"center",marginBottom:28}}>
+          <h1 style={{fontSize:26,fontWeight:700,color:"#3A3530",margin:"0 0 4px",letterSpacing:1}}>MyHue</h1>
+          <div style={{fontSize:9,letterSpacing:5,textTransform:"uppercase",color:"#9A9088"}}>Your Colour Assistant</div>
+          <div style={{width:30,height:1.5,background:"#C8BEB0",margin:"12px auto 0",borderRadius:1}}/>
+        </div>
+
+        <div style={{display:"flex",borderRadius:10,overflow:"hidden",border:"1px solid rgba(80,70,60,.12)",marginBottom:24}}>
+          {["signin","signup"].map(function(v){return(
+            <button key={v} onClick={function(){setAuthView(v);setAuthErr("");setAuthMsg("");}} style={{flex:1,padding:"10px",fontSize:11,letterSpacing:2,textTransform:"uppercase",fontWeight:600,border:"none",cursor:"pointer",background:authView===v?"#3A3530":"transparent",color:authView===v?"#FAF6EE":"#9A9088",transition:"all .2s"}}>
+              {v==="signin"?"Sign In":"Sign Up"}
+            </button>
+          );})}
+        </div>
+
+        {authErr && <div style={{background:"rgba(180,60,50,.08)",border:"1px solid rgba(180,60,50,.2)",borderRadius:8,padding:"10px 12px",fontSize:12,color:"#B43C32",marginBottom:16,lineHeight:1.5}}>{authErr}</div>}
+        {authMsg && <div style={{background:"rgba(50,130,80,.08)",border:"1px solid rgba(50,130,80,.2)",borderRadius:8,padding:"10px 12px",fontSize:12,color:"#32825A",marginBottom:16,lineHeight:1.5}}>{authMsg}</div>}
+
+        <div style={{marginBottom:14}}>
+          <div style={{fontSize:9.5,letterSpacing:2.5,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:6}}>Email</div>
+          <input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="you@example.com"
+            style={{width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid rgba(80,70,60,.18)",fontSize:13,color:"#3A3530",background:"#FFFFFF",outline:"none",boxSizing:"border-box"}}/>
+        </div>
+        {authView!=="forgot" && (
+          <div style={{marginBottom:20}}>
+            <div style={{fontSize:9.5,letterSpacing:2.5,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:6}}>Password</div>
+            <input type="password" value={pass} onChange={function(e){setPass(e.target.value);}} placeholder="••••••••"
+              onKeyDown={function(e){if(e.key==="Enter")authView==="signin"?handleSignIn():handleSignUp();}}
+              style={{width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid rgba(80,70,60,.18)",fontSize:13,color:"#3A3530",background:"#FFFFFF",outline:"none",boxSizing:"border-box"}}/>
+          </div>
+        )}
+
+        <button onClick={authView==="signin"?handleSignIn:authView==="signup"?handleSignUp:handleForgot}
+          disabled={authBusy}
+          style={{width:"100%",padding:"13px",borderRadius:10,background:"#3A3530",color:"#FAF6EE",border:"none",cursor:authBusy?"not-allowed":"pointer",fontSize:11,fontWeight:700,letterSpacing:3,textTransform:"uppercase",opacity:authBusy?.7:1,marginBottom:14}}>
+          {authBusy?"Please wait…":authView==="signin"?"Sign In":authView==="signup"?"Create Account":"Send Reset Link"}
+        </button>
+
+        {authView==="signin" && (
+          <div style={{textAlign:"center"}}>
+            <button onClick={function(){setAuthView("forgot");setAuthErr("");setAuthMsg("");}} style={{fontSize:11,color:"#B8935A",background:"none",border:"none",cursor:"pointer",textDecoration:"underline"}}>Forgot password?</button>
+          </div>
+        )}
+        {authView==="forgot" && (
+          <div style={{textAlign:"center"}}>
+            <button onClick={function(){setAuthView("signin");setAuthErr("");setAuthMsg("");}} style={{fontSize:11,color:"#9A9088",background:"none",border:"none",cursor:"pointer"}}>← Back to sign in</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div style={{minHeight:"100vh",background:"linear-gradient(170deg,#FAF6EE 0%,#F2EDE4 40%,#EDE7DC 100%)",color:"#3A3530"}}>
     <div style={{maxWidth:580,margin:"0 auto",padding:"16px 16px 56px",opacity:fade?1:0,transform:fade?"translateY(0)":"translateY(8px)",transition:"all .26s"}}>
@@ -262,7 +375,11 @@ export default function App(){
     <header style={{textAlign:"center",padding:"16px 0 20px"}}>
       <h1 style={{fontSize:28,fontWeight:700,margin:0,color:"#3A3530",letterSpacing:1}}>MyHue</h1>
       <div style={{fontSize:9,letterSpacing:5,textTransform:"uppercase",color:"#9A9088",fontWeight:500,marginTop:4}}>Your Colour Assistant</div>
-      <div style={{width:30,height:1.5,background:"#C8BEB0",margin:"10px auto 0",borderRadius:1}}/>
+      <div style={{width:30,height:1.5,background:"#C8BEB0",margin:"10px auto 6px",borderRadius:1}}/>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+        <span style={{fontSize:10,color:"#9A9088"}}>{user.email}</span>
+        <button onClick={handleSignOut} style={{fontSize:9.5,letterSpacing:1.5,textTransform:"uppercase",color:"#9A9088",background:"none",border:"1px solid rgba(80,70,60,.15)",borderRadius:5,padding:"3px 10px",cursor:"pointer"}}>Sign out</button>
+      </div>
     </header>
 
     {view==="home" && (
