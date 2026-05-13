@@ -170,13 +170,13 @@ function solve(a){
 function Sw(props){var sz=props.size||36; return (
   <div style={{textAlign:"center"}}>
     <div style={{width:sz,height:sz,borderRadius:3,backgroundColor:props.color,border:"1px solid rgba(0,0,0,.08)",margin:"0 auto"}}/>
-    {props.label ? <div style={{fontSize:7,color:"#A08888",marginTop:4,lineHeight:"1.2",maxWidth:sz+10,margin:"4px auto 0",letterSpacing:1.5,textTransform:"uppercase",fontFamily:"'Outfit',sans-serif"}}>{props.label}</div> : null}
+    {props.label ? <div style={{fontSize:9,color:"#A08888",marginTop:4,lineHeight:"1.2",maxWidth:sz+10,margin:"4px auto 0",letterSpacing:1,textTransform:"uppercase",fontFamily:"'Outfit',sans-serif"}}>{props.label}</div> : null}
   </div>
 );}
 var GR={Spring:"linear-gradient(135deg,#5C1A2A 0%,#7D2D40 100%)",Summer:"linear-gradient(135deg,#5C1A2A 0%,#3D2240 100%)",Autumn:"linear-gradient(135deg,#5C1A2A 0%,#6B2818 100%)",Winter:"linear-gradient(135deg,#5C1A2A 0%,#1A2240 100%)"};
 function Card(props){ return <div style={{background:"#FFFAF9",borderRadius:12,padding:"22px 20px",border:"1px solid rgba(139,45,63,.1)",marginBottom:props.mb||0}}>{props.children}</div>; }
-function Lbl(props){ return <div style={{fontSize:8,letterSpacing:5,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:14,textAlign:"center",fontFamily:"'Outfit',sans-serif"}}>{props.children}</div>; }
-function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"15px":"12px",fontSize:9,letterSpacing:4,textTransform:"uppercase",fontWeight:600,background:props.primary?"#8B2D3F":"transparent",color:props.primary?"#FDF6F5":"#8B2D3F",border:"1.5px solid #8B2D3F",borderRadius:40,cursor:"pointer",marginBottom:8,fontFamily:"'Outfit',sans-serif",transition:"all .2s"}}>{props.children}</button>; }
+function Lbl(props){ return <div style={{fontSize:11,letterSpacing:4,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:14,textAlign:"center",fontFamily:"'Outfit',sans-serif"}}>{props.children}</div>; }
+function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"16px":"13px",fontSize:12,letterSpacing:3,textTransform:"uppercase",fontWeight:600,background:props.primary?"#8B2D3F":"transparent",color:props.primary?"#FDF6F5":"#8B2D3F",border:"1.5px solid #8B2D3F",borderRadius:40,cursor:"pointer",marginBottom:8,fontFamily:"'Outfit',sans-serif",transition:"all .2s"}}>{props.children}</button>; }
 
 export default function App(){
   var stV=useState("home"),view=stV[0],setView=stV[1];
@@ -375,13 +375,13 @@ export default function App(){
     <div style={{maxWidth:580,margin:"0 auto",padding:"0 16px 56px",opacity:fade?1:0,transform:fade?"translateY(0)":"translateY(8px)",transition:"all .26s"}}>
 
     <header style={{textAlign:"center",padding:"36px 0 28px"}}>
-      <div style={{fontSize:7.5,letterSpacing:7,textTransform:"uppercase",color:"#C4899A",fontWeight:500,marginBottom:12,fontFamily:"'Outfit',sans-serif"}}>Personal Colour Analysis</div>
-      <h1 style={{fontSize:52,fontWeight:300,margin:"0 0 4px",color:"#2A1A1E",letterSpacing:2,fontFamily:"'Cormorant',serif",fontStyle:"italic",lineHeight:1}}>MyHue</h1>
+      <div style={{fontSize:10,letterSpacing:6,textTransform:"uppercase",color:"#C4899A",fontWeight:500,marginBottom:12,fontFamily:"'Outfit',sans-serif"}}>Personal Colour Analysis</div>
+      <h1 style={{fontSize:56,fontWeight:300,margin:"0 0 4px",color:"#2A1A1E",letterSpacing:2,fontFamily:"'Cormorant',serif",fontStyle:"italic",lineHeight:1}}>MyHue</h1>
       <div style={{width:36,height:1,background:"#8B2D3F",margin:"14px auto 14px",opacity:0.4}}/>
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:10}}>
-        <span style={{fontSize:10,color:"#C4899A",fontFamily:"'Outfit',sans-serif"}}>{user.email}</span>
+        <span style={{fontSize:12,color:"#C4899A",fontFamily:"'Outfit',sans-serif"}}>{user.email}</span>
         <span style={{color:"#E8D0D0"}}>·</span>
-        <button onClick={handleSignOut} style={{fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#C4899A",background:"none",border:"none",cursor:"pointer",fontFamily:"'Outfit',sans-serif"}}>Sign out</button>
+        <button onClick={handleSignOut} style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",color:"#C4899A",background:"none",border:"none",cursor:"pointer",fontFamily:"'Outfit',sans-serif"}}>Sign out</button>
       </div>
     </header>
 
@@ -499,13 +499,13 @@ export default function App(){
         </div>
         {ph && <div style={{textAlign:"center",marginBottom:8}}><img src={ph} alt="" style={{width:44,height:55,objectFit:"cover",borderRadius:7,opacity:.85}}/></div>}
         <Card mb={0}>
-          <h2 style={{fontSize:15,fontWeight:600,color:"#3A3530",margin:"0 0 6px",lineHeight:"1.4"}}>{QS[qi].q}</h2>
-          <p style={{fontSize:10,color:"#8A8078",fontStyle:"italic",lineHeight:"1.5",margin:"0 0 12px",padding:"5px 8px",background:"rgba(248,244,238,.4)",borderRadius:6}}>{QS[qi].tip}</p>
-          <div style={{display:"flex",flexDirection:"column",gap:6}}>
+          <h2 style={{fontSize:17,fontWeight:500,color:"#2A1A1E",margin:"0 0 8px",lineHeight:"1.4",fontFamily:"'Outfit',sans-serif"}}>{QS[qi].q}</h2>
+          <p style={{fontSize:13,color:"#A08888",fontStyle:"italic",lineHeight:"1.5",margin:"0 0 14px",padding:"6px 10px",background:"rgba(139,45,63,.04)",borderRadius:6}}>{QS[qi].tip}</p>
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
             {QS[qi].o.map(function(o,i){ return (
-              <button key={i} onClick={function(){doA(QS[qi].id,o.v);}} style={{display:"flex",alignItems:"center",gap:10,padding:"10px",borderRadius:8,background:"rgba(248,244,238,.5)",border:"1px solid rgba(80,70,60,.08)",cursor:"pointer",textAlign:"left"}}>
-                <div style={{width:24,height:24,borderRadius:"50%",background:o.c,flexShrink:0,border:"2px solid rgba(255,255,255,.4)"}}/>
-                <span style={{fontSize:12,color:"#3A3530"}}>{o.l}</span>
+              <button key={i} onClick={function(){doA(QS[qi].id,o.v);}} style={{display:"flex",alignItems:"center",gap:12,padding:"12px",borderRadius:10,background:"rgba(255,250,249,.8)",border:"1px solid rgba(139,45,63,.1)",cursor:"pointer",textAlign:"left"}}>
+                <div style={{width:26,height:26,borderRadius:"50%",background:o.c,flexShrink:0,border:"2px solid rgba(255,255,255,.5)"}}/>
+                <span style={{fontSize:14,color:"#2A1A1E",fontFamily:"'Outfit',sans-serif"}}>{o.l}</span>
               </button>
             );})}
           </div>
@@ -532,7 +532,7 @@ export default function App(){
         </div>
 
         {/* Description — visible to all */}
-        <Card mb={10}><p style={{fontSize:12.5,color:"#5A524A",lineHeight:1.65,margin:0}}>{p.desc}</p></Card>
+        <Card mb={10}><p style={{fontSize:15,color:"#5A424A",lineHeight:1.7,margin:0,fontFamily:"'Outfit',sans-serif"}}>{p.desc}</p></Card>
 
         {ph && (
           <Card mb={10}><div style={{display:"flex",gap:10,alignItems:"center"}}>
@@ -593,21 +593,21 @@ export default function App(){
             </Card>
 
             <Card mb={10}><Lbl>Your Best Metals</Lbl>
-              <p style={{fontSize:11.5,color:"#3A3530",lineHeight:"1.5",margin:"0 0 8px"}}><strong>Season:</strong> {p.mt}</p>
-              <div style={{background:"rgba(248,244,238,.45)",borderRadius:8,padding:"8px 10px"}}>
-                <div style={{fontSize:8.5,letterSpacing:2,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:3}}>Based on Your Eyes</div>
-                <p style={{fontSize:11,color:"#5A524A",lineHeight:"1.5",margin:0}}>{metalTip(ans.q5||"",p.s==="Spring"||p.s==="Autumn")}</p>
+              <p style={{fontSize:14,color:"#2A1A1E",lineHeight:"1.6",margin:"0 0 10px",fontFamily:"'Outfit',sans-serif"}}><strong>Season:</strong> {p.mt}</p>
+              <div style={{background:"rgba(139,45,63,.04)",borderRadius:8,padding:"10px 12px"}}>
+                <div style={{fontSize:10,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:4,fontFamily:"'Outfit',sans-serif"}}>Based on Your Eyes</div>
+                <p style={{fontSize:13,color:"#5A424A",lineHeight:"1.6",margin:0,fontFamily:"'Outfit',sans-serif"}}>{metalTip(ans.q5||"",p.s==="Spring"||p.s==="Autumn")}</p>
               </div>
             </Card>
 
             <Card mb={10}><Lbl>Pattern Guide</Lbl>
-              <div style={{background:"rgba(248,244,238,.45)",borderRadius:8,padding:"8px 10px"}}>
-                <div style={{fontSize:8.5,letterSpacing:2,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:3}}>For {feat==="bold"?"bold":feat==="delicate"?"delicate":"balanced"} features</div>
-                <p style={{fontSize:11,color:"#5A524A",lineHeight:"1.5",margin:0}}>{p.pt&&p.pt[pKey]?p.pt[pKey]:""}</p>
+              <div style={{background:"rgba(139,45,63,.04)",borderRadius:8,padding:"10px 12px"}}>
+                <div style={{fontSize:10,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:4,fontFamily:"'Outfit',sans-serif"}}>For {feat==="bold"?"bold":feat==="delicate"?"delicate":"balanced"} features</div>
+                <p style={{fontSize:13,color:"#5A424A",lineHeight:"1.6",margin:0,fontFamily:"'Outfit',sans-serif"}}>{p.pt&&p.pt[pKey]?p.pt[pKey]:""}</p>
               </div>
             </Card>
 
-            <Card mb={10}><Lbl>Makeup</Lbl><p style={{fontSize:11.5,color:"#3A3530",lineHeight:"1.5",margin:0}}>{p.mk}</p></Card>
+            <Card mb={10}><Lbl>Makeup</Lbl><p style={{fontSize:14,color:"#2A1A1E",lineHeight:"1.6",margin:0,fontFamily:"'Outfit',sans-serif"}}>{p.mk}</p></Card>
 
             <Card mb={10}><Lbl>Flow Position</Lbl>
               <p style={{fontSize:11,color:"#5A524A",lineHeight:"1.5",margin:"0 0 8px",textAlign:"center"}}><strong>{p.n}</strong> sits between {p.fl}.</p>
