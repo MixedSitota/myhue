@@ -169,14 +169,14 @@ function solve(a){
 }
 function Sw(props){var sz=props.size||36; return (
   <div style={{textAlign:"center"}}>
-    <div style={{width:sz,height:sz,borderRadius:2,backgroundColor:props.color,border:"1px solid rgba(0,0,0,.1)",margin:"0 auto"}}/>
-    {props.label ? <div style={{fontSize:7,color:"#888",marginTop:4,lineHeight:"1.2",maxWidth:sz+10,margin:"4px auto 0",letterSpacing:1,textTransform:"uppercase"}}>{props.label}</div> : null}
+    <div style={{width:sz,height:sz,borderRadius:3,backgroundColor:props.color,border:"1px solid rgba(0,0,0,.08)",margin:"0 auto"}}/>
+    {props.label ? <div style={{fontSize:7,color:"#A08888",marginTop:4,lineHeight:"1.2",maxWidth:sz+10,margin:"4px auto 0",letterSpacing:1.5,textTransform:"uppercase",fontFamily:"'Outfit',sans-serif"}}>{props.label}</div> : null}
   </div>
 );}
-var GR={Spring:"linear-gradient(135deg,#0A0A0A 0%,#1A1410 100%)",Summer:"linear-gradient(135deg,#0A0A0A 0%,#0F0F1A 100%)",Autumn:"linear-gradient(135deg,#0A0A0A 0%,#1A1208 100%)",Winter:"linear-gradient(135deg,#0A0A0A 0%,#0A0A14 100%)"};
-function Card(props){ return <div style={{background:"#FFFFFF",borderRadius:0,padding:"24px 20px",border:"1px solid #E8E8E8",marginBottom:props.mb||0,borderLeft:"3px solid #C9A96E"}}>{props.children}</div>; }
-function Lbl(props){ return <div style={{fontSize:8.5,letterSpacing:5,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:14,textAlign:"center"}}>{props.children}</div>; }
-function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"16px":"13px",fontSize:9.5,letterSpacing:4,textTransform:"uppercase",fontWeight:700,background:props.primary?"#0A0A0A":"transparent",color:props.primary?"#FFFFFF":"#0A0A0A",border:props.primary?"2px solid #0A0A0A":"2px solid #0A0A0A",borderRadius:0,cursor:"pointer",marginBottom:8,transition:"all .2s"}}>{props.children}</button>; }
+var GR={Spring:"linear-gradient(135deg,#5C1A2A 0%,#7D2D40 100%)",Summer:"linear-gradient(135deg,#5C1A2A 0%,#3D2240 100%)",Autumn:"linear-gradient(135deg,#5C1A2A 0%,#6B2818 100%)",Winter:"linear-gradient(135deg,#5C1A2A 0%,#1A2240 100%)"};
+function Card(props){ return <div style={{background:"#FFFAF9",borderRadius:12,padding:"22px 20px",border:"1px solid rgba(139,45,63,.1)",marginBottom:props.mb||0}}>{props.children}</div>; }
+function Lbl(props){ return <div style={{fontSize:8,letterSpacing:5,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:14,textAlign:"center",fontFamily:"'Outfit',sans-serif"}}>{props.children}</div>; }
+function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"15px":"12px",fontSize:9,letterSpacing:4,textTransform:"uppercase",fontWeight:600,background:props.primary?"#8B2D3F":"transparent",color:props.primary?"#FDF6F5":"#8B2D3F",border:"1.5px solid #8B2D3F",borderRadius:40,cursor:"pointer",marginBottom:8,fontFamily:"'Outfit',sans-serif",transition:"all .2s"}}>{props.children}</button>; }
 
 export default function App(){
   var stV=useState("home"),view=stV[0],setView=stV[1];
@@ -213,7 +213,7 @@ export default function App(){
   var streamRef=useRef(null);
 
   useEffect(function(){
-    try{var s=document.createElement("style");s.textContent='@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap");*{box-sizing:border-box}body{font-family:"DM Sans",sans-serif;background:#F5F4F0}h1,h2,h3{font-family:"Playfair Display",serif}';document.head.appendChild(s);}catch(e){}
+    try{var s=document.createElement("style");s.textContent='@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap");*{box-sizing:border-box}body{font-family:"Outfit",sans-serif;background:#FBF0EE;margin:0}';document.head.appendChild(s);}catch(e){}
 
     // Check if user is already logged in
     supabase.auth.getSession().then(function(r){
@@ -315,54 +315,54 @@ export default function App(){
 
   // Show login/signup screen if not logged in
   if(!user) return (
-    <div style={{minHeight:"100vh",background:"#0A0A0A",display:"flex",alignItems:"center",justifyContent:"center",padding:"20px"}}>
-      <div style={{width:"100%",maxWidth:420}}>
-        <div style={{textAlign:"center",marginBottom:40}}>
-          <div style={{fontSize:8,letterSpacing:8,textTransform:"uppercase",color:"#C9A96E",marginBottom:12}}>Personal Colour Analysis</div>
-          <h1 style={{fontSize:52,fontWeight:900,color:"#FFFFFF",margin:0,fontFamily:"'Playfair Display',serif",fontStyle:"italic",letterSpacing:-1}}>MyHue</h1>
-          <div style={{width:40,height:2,background:"#C9A96E",margin:"20px auto 0"}}/>
+    <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#FBF0EE 0%,#F5E0E4 50%,#EDD0D8 100%)",display:"flex",alignItems:"center",justifyContent:"center",padding:"20px"}}>
+      <div style={{width:"100%",maxWidth:400}}>
+        <div style={{textAlign:"center",marginBottom:36}}>
+          <div style={{fontSize:7.5,letterSpacing:7,textTransform:"uppercase",color:"#C4899A",marginBottom:14,fontFamily:"'Outfit',sans-serif"}}>Personal Colour Analysis</div>
+          <h1 style={{fontSize:58,fontWeight:300,color:"#2A1A1E",margin:0,fontFamily:"'Cormorant',serif",fontStyle:"italic",letterSpacing:2,lineHeight:1}}>MyHue</h1>
+          <div style={{width:36,height:1,background:"#8B2D3F",margin:"16px auto 0",opacity:0.5}}/>
         </div>
 
-        <div style={{background:"#141414",border:"1px solid #2A2A2A",padding:"36px 32px"}}>
-          <div style={{display:"flex",borderBottom:"1px solid #2A2A2A",marginBottom:28}}>
+        <div style={{background:"rgba(255,250,249,.92)",borderRadius:20,padding:"36px 32px",border:"1px solid rgba(139,45,63,.1)"}}>
+          <div style={{display:"flex",borderBottom:"1px solid rgba(139,45,63,.12)",marginBottom:28}}>
             {["signin","signup"].map(function(v){return(
-              <button key={v} onClick={function(){setAuthView(v);setAuthErr("");setAuthMsg("");}} style={{flex:1,padding:"12px",fontSize:9,letterSpacing:4,textTransform:"uppercase",fontWeight:700,border:"none",cursor:"pointer",background:"transparent",color:authView===v?"#C9A96E":"#555",borderBottom:authView===v?"2px solid #C9A96E":"2px solid transparent",transition:"all .2s",fontFamily:"'DM Sans',sans-serif"}}>
+              <button key={v} onClick={function(){setAuthView(v);setAuthErr("");setAuthMsg("");}} style={{flex:1,padding:"11px",fontSize:8.5,letterSpacing:4,textTransform:"uppercase",fontWeight:600,border:"none",cursor:"pointer",background:"transparent",color:authView===v?"#8B2D3F":"#C4899A",borderBottom:authView===v?"2px solid #8B2D3F":"2px solid transparent",transition:"all .2s",fontFamily:"'Outfit',sans-serif"}}>
                 {v==="signin"?"Sign In":"Sign Up"}
               </button>
             );})}
           </div>
 
-          {authErr && <div style={{background:"rgba(200,60,50,.12)",border:"1px solid rgba(200,60,50,.3)",padding:"10px 14px",fontSize:12,color:"#E87060",marginBottom:20,lineHeight:1.5}}>{authErr}</div>}
-          {authMsg && <div style={{background:"rgba(80,180,100,.1)",border:"1px solid rgba(80,180,100,.25)",padding:"10px 14px",fontSize:12,color:"#60C070",marginBottom:20,lineHeight:1.5}}>{authMsg}</div>}
+          {authErr && <div style={{background:"rgba(139,45,63,.06)",border:"1px solid rgba(139,45,63,.2)",borderRadius:8,padding:"10px 14px",fontSize:12,color:"#8B2D3F",marginBottom:20,lineHeight:1.5,fontFamily:"'Outfit',sans-serif"}}>{authErr}</div>}
+          {authMsg && <div style={{background:"rgba(50,130,80,.06)",border:"1px solid rgba(50,130,80,.2)",borderRadius:8,padding:"10px 14px",fontSize:12,color:"#3A7A50",marginBottom:20,lineHeight:1.5,fontFamily:"'Outfit',sans-serif"}}>{authMsg}</div>}
 
           <div style={{marginBottom:16}}>
-            <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:8}}>Email</div>
+            <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:8,fontFamily:"'Outfit',sans-serif"}}>Email</div>
             <input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="your@email.com"
-              style={{width:"100%",padding:"13px 16px",border:"1px solid #2A2A2A",borderRadius:0,fontSize:13,color:"#FFFFFF",background:"#0A0A0A",outline:"none",boxSizing:"border-box",fontFamily:"'DM Sans',sans-serif"}}/>
+              style={{width:"100%",padding:"12px 16px",border:"1px solid rgba(139,45,63,.2)",borderRadius:8,fontSize:13,color:"#2A1A1E",background:"#FFFAF9",outline:"none",boxSizing:"border-box",fontFamily:"'Outfit',sans-serif"}}/>
           </div>
           {authView!=="forgot" && (
-            <div style={{marginBottom:28}}>
-              <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:8}}>Password</div>
+            <div style={{marginBottom:24}}>
+              <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:8,fontFamily:"'Outfit',sans-serif"}}>Password</div>
               <input type="password" value={pass} onChange={function(e){setPass(e.target.value);}} placeholder="••••••••"
                 onKeyDown={function(e){if(e.key==="Enter")authView==="signin"?handleSignIn():handleSignUp();}}
-                style={{width:"100%",padding:"13px 16px",border:"1px solid #2A2A2A",borderRadius:0,fontSize:13,color:"#FFFFFF",background:"#0A0A0A",outline:"none",boxSizing:"border-box",fontFamily:"'DM Sans',sans-serif"}}/>
+                style={{width:"100%",padding:"12px 16px",border:"1px solid rgba(139,45,63,.2)",borderRadius:8,fontSize:13,color:"#2A1A1E",background:"#FFFAF9",outline:"none",boxSizing:"border-box",fontFamily:"'Outfit',sans-serif"}}/>
             </div>
           )}
 
           <button onClick={authView==="signin"?handleSignIn:authView==="signup"?handleSignUp:handleForgot}
             disabled={authBusy}
-            style={{width:"100%",padding:"16px",background:"#C9A96E",color:"#0A0A0A",border:"none",cursor:authBusy?"not-allowed":"pointer",fontSize:9.5,fontWeight:700,letterSpacing:4,textTransform:"uppercase",opacity:authBusy?.7:1,marginBottom:20,fontFamily:"'DM Sans',sans-serif"}}>
+            style={{width:"100%",padding:"14px",background:"#8B2D3F",color:"#FDF6F5",border:"none",cursor:authBusy?"not-allowed":"pointer",fontSize:9,fontWeight:600,letterSpacing:4,textTransform:"uppercase",opacity:authBusy?.7:1,marginBottom:18,borderRadius:40,fontFamily:"'Outfit',sans-serif"}}>
             {authBusy?"Please wait…":authView==="signin"?"Sign In":authView==="signup"?"Create Account":"Send Reset Link"}
           </button>
 
           {authView==="signin" && (
             <div style={{textAlign:"center"}}>
-              <button onClick={function(){setAuthView("forgot");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#555",background:"none",border:"none",cursor:"pointer",letterSpacing:1,textDecoration:"underline",fontFamily:"'DM Sans',sans-serif"}}>Forgot password?</button>
+              <button onClick={function(){setAuthView("forgot");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#C4899A",background:"none",border:"none",cursor:"pointer",letterSpacing:1,fontFamily:"'Outfit',sans-serif"}}>Forgot password?</button>
             </div>
           )}
           {authView==="forgot" && (
             <div style={{textAlign:"center"}}>
-              <button onClick={function(){setAuthView("signin");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#555",background:"none",border:"none",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>← Back to sign in</button>
+              <button onClick={function(){setAuthView("signin");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#C4899A",background:"none",border:"none",cursor:"pointer",fontFamily:"'Outfit',sans-serif"}}>← Back to sign in</button>
             </div>
           )}
         </div>
@@ -371,33 +371,34 @@ export default function App(){
   );
 
   return (
-    <div style={{minHeight:"100vh",background:"#F5F4F0",color:"#0A0A0A"}}>
+    <div style={{minHeight:"100vh",background:"#FBF0EE",color:"#2A1A1E"}}>
     <div style={{maxWidth:580,margin:"0 auto",padding:"0 16px 56px",opacity:fade?1:0,transform:fade?"translateY(0)":"translateY(8px)",transition:"all .26s"}}>
 
-    <header style={{textAlign:"center",padding:"32px 0 28px",borderBottom:"1px solid #0A0A0A",marginBottom:28}}>
-      <div style={{fontSize:8,letterSpacing:8,textTransform:"uppercase",color:"#C9A96E",fontWeight:600,marginBottom:10}}>Personal Colour Analysis</div>
-      <h1 style={{fontSize:42,fontWeight:900,margin:0,color:"#0A0A0A",letterSpacing:-1,fontFamily:"'Playfair Display',serif",fontStyle:"italic"}}>MyHue</h1>
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginTop:12}}>
-        <span style={{fontSize:10,color:"#888",letterSpacing:1}}>{user.email}</span>
-        <span style={{color:"#DDD"}}>|</span>
-        <button onClick={handleSignOut} style={{fontSize:9.5,letterSpacing:2,textTransform:"uppercase",color:"#888",background:"none",border:"none",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>Sign out</button>
+    <header style={{textAlign:"center",padding:"36px 0 28px"}}>
+      <div style={{fontSize:7.5,letterSpacing:7,textTransform:"uppercase",color:"#C4899A",fontWeight:500,marginBottom:12,fontFamily:"'Outfit',sans-serif"}}>Personal Colour Analysis</div>
+      <h1 style={{fontSize:52,fontWeight:300,margin:"0 0 4px",color:"#2A1A1E",letterSpacing:2,fontFamily:"'Cormorant',serif",fontStyle:"italic",lineHeight:1}}>MyHue</h1>
+      <div style={{width:36,height:1,background:"#8B2D3F",margin:"14px auto 14px",opacity:0.4}}/>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:10}}>
+        <span style={{fontSize:10,color:"#C4899A",fontFamily:"'Outfit',sans-serif"}}>{user.email}</span>
+        <span style={{color:"#E8D0D0"}}>·</span>
+        <button onClick={handleSignOut} style={{fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#C4899A",background:"none",border:"none",cursor:"pointer",fontFamily:"'Outfit',sans-serif"}}>Sign out</button>
       </div>
     </header>
 
     {view==="home" && (
       <div>
         {sp && (
-          <Card mb={14}><div style={{textAlign:"center"}}>
+          <Card mb={16}><div style={{textAlign:"center"}}>
             <div style={{fontSize:32,marginBottom:4}}>{sp.e}</div>
             <Lbl>Your Saved Season</Lbl>
-            <h3 style={{fontSize:22,fontWeight:700,color:"#0A0A0A",margin:"0 0 12px",fontFamily:"'Playfair Display',serif",fontStyle:"italic"}}>{sp.n}</h3>
-            <div style={{display:"flex",gap:3,justifyContent:"center",marginBottom:14}}>{sp.c.slice(0,8).map(function(c,i){return <Sw key={i} color={c} size={28}/>;})}</div>
+            <h3 style={{fontSize:26,fontWeight:300,color:"#2A1A1E",margin:"0 0 14px",fontFamily:"'Cormorant',serif",fontStyle:"italic"}}>{sp.n}</h3>
+            <div style={{display:"flex",gap:4,justifyContent:"center",marginBottom:16}}>{sp.c.slice(0,8).map(function(c,i){return <Sw key={i} color={c} size={30}/>;})}</div>
             <Btn onClick={function(){setRes(saved.res);if(saved.ans)setAns(saved.ans);go("result");}}>View My Results</Btn>
           </div></Card>
         )}
-        <div style={{marginBottom:24,paddingBottom:24,borderBottom:"1px solid #E0E0E0"}}>
-          <p style={{fontSize:14,lineHeight:1.8,color:"#444",margin:"0 0 4px",fontFamily:"'DM Sans',sans-serif"}}>Discover the colours that work in perfect harmony with your natural colouring.</p>
-          <p style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",color:"#C9A96E",margin:0}}>Built on the Sci/ART 12-tone system</p>
+        <div style={{marginBottom:28,textAlign:"center"}}>
+          <p style={{fontSize:16,lineHeight:1.8,color:"#6A4A52",margin:"0 0 6px",fontFamily:"'Cormorant',serif",fontStyle:"italic",fontWeight:300}}>Discover the colours that work in perfect harmony with your natural colouring.</p>
+          <p style={{fontSize:8.5,letterSpacing:4,textTransform:"uppercase",color:"#C4899A",margin:0,fontFamily:"'Outfit',sans-serif"}}>Sci/ART 12-tone system</p>
         </div>
         <Btn primary onClick={function(){go("guide")}}>{sp?"Retake Analysis":"Begin My Analysis"}</Btn>
         <Btn onClick={function(){go("theory")}}>Understand the Theory</Btn>
@@ -523,11 +524,11 @@ export default function App(){
         </div>
 
         {/* Season header — visible to all */}
-        <div style={{background:GR[p.s],borderRadius:0,padding:"32px 24px",textAlign:"center",marginBottom:10,border:"none",position:"relative",overflow:"hidden"}}>
-          <div style={{fontSize:9,letterSpacing:6,textTransform:"uppercase",color:"#C9A96E",marginBottom:8}}>Your Season</div>
-          <div style={{fontSize:48,marginBottom:4}}>{p.e}</div>
-          <h2 style={{fontSize:32,fontWeight:900,color:"#FFFFFF",margin:"0 0 6px",fontFamily:"'Playfair Display',serif",fontStyle:"italic",letterSpacing:-0.5}}>{p.n}</h2>
-          <div style={{fontSize:10,color:"rgba(255,255,255,.5)",letterSpacing:3,textTransform:"uppercase"}}>{p.d} · {p.d2}</div>
+        <div style={{background:GR[p.s],borderRadius:16,padding:"36px 24px",textAlign:"center",marginBottom:10}}>
+          <div style={{fontSize:8,letterSpacing:6,textTransform:"uppercase",color:"rgba(255,255,255,.5)",marginBottom:10,fontFamily:"'Outfit',sans-serif"}}>Your Season</div>
+          <div style={{fontSize:44,marginBottom:8}}>{p.e}</div>
+          <h2 style={{fontSize:36,fontWeight:300,color:"#FFFFFF",margin:"0 0 8px",fontFamily:"'Cormorant',serif",fontStyle:"italic",letterSpacing:1}}>{p.n}</h2>
+          <div style={{fontSize:9,color:"rgba(255,255,255,.45)",letterSpacing:4,textTransform:"uppercase",fontFamily:"'Outfit',sans-serif"}}>{p.d} · {p.d2}</div>
         </div>
 
         {/* Description — visible to all */}
