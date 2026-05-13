@@ -2,8 +2,8 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // ─── PASTE YOUR SUPABASE CREDENTIALS HERE ───────────────────────────────────
-const SUPABASE_URL = "https://ktvdxnqubwrlosnkftqi.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt0dmR4bnF1YndybG9zbmtmdHFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2OTQxMTIsImV4cCI6MjA5NDI3MDExMn0.U8BujYy5-dAYTsvLmtx9geCbBfYpl2s_x2wWMeypWNw";
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
 // ────────────────────────────────────────────────────────────────────────────
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -169,14 +169,14 @@ function solve(a){
 }
 function Sw(props){var sz=props.size||36; return (
   <div style={{textAlign:"center"}}>
-    <div style={{width:sz,height:sz,borderRadius:7,backgroundColor:props.color,border:"1px solid rgba(0,0,0,.06)",margin:"0 auto"}}/>
-    {props.label ? <div style={{fontSize:7.5,color:"#6B6560",marginTop:3,lineHeight:"1.2",maxWidth:sz+10,margin:"3px auto 0"}}>{props.label}</div> : null}
+    <div style={{width:sz,height:sz,borderRadius:2,backgroundColor:props.color,border:"1px solid rgba(0,0,0,.1)",margin:"0 auto"}}/>
+    {props.label ? <div style={{fontSize:7,color:"#888",marginTop:4,lineHeight:"1.2",maxWidth:sz+10,margin:"4px auto 0",letterSpacing:1,textTransform:"uppercase"}}>{props.label}</div> : null}
   </div>
 );}
-var GR={Spring:"linear-gradient(135deg,#FDF9F0,#FFF3D8)",Summer:"linear-gradient(135deg,#F6F4FA,#EDE6F2)",Autumn:"linear-gradient(135deg,#FBF5EB,#F2E8D0)",Winter:"linear-gradient(135deg,#F2F4F9,#E4E9F4)"};
-function Card(props){ return <div style={{background:"rgba(255,253,248,.7)",borderRadius:14,padding:"20px 18px",border:"1px solid rgba(80,70,60,.08)",marginBottom:props.mb||0}}>{props.children}</div>; }
-function Lbl(props){ return <div style={{fontSize:9.5,letterSpacing:4,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:12,textAlign:"center"}}>{props.children}</div>; }
-function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"14px":"12px",fontSize:11,letterSpacing:3,textTransform:"uppercase",fontWeight:600,background:props.primary?"#3A3530":"transparent",color:props.primary?"#FAF6EE":"#8A8078",border:props.primary?"none":"1px solid rgba(80,70,60,.15)",borderRadius:10,cursor:"pointer",marginBottom:8}}>{props.children}</button>; }
+var GR={Spring:"linear-gradient(135deg,#0A0A0A 0%,#1A1410 100%)",Summer:"linear-gradient(135deg,#0A0A0A 0%,#0F0F1A 100%)",Autumn:"linear-gradient(135deg,#0A0A0A 0%,#1A1208 100%)",Winter:"linear-gradient(135deg,#0A0A0A 0%,#0A0A14 100%)"};
+function Card(props){ return <div style={{background:"#FFFFFF",borderRadius:0,padding:"24px 20px",border:"1px solid #E8E8E8",marginBottom:props.mb||0,borderLeft:"3px solid #C9A96E"}}>{props.children}</div>; }
+function Lbl(props){ return <div style={{fontSize:8.5,letterSpacing:5,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:14,textAlign:"center"}}>{props.children}</div>; }
+function Btn(props){ return <button onClick={props.onClick} style={{display:"block",width:"100%",padding:props.primary?"16px":"13px",fontSize:9.5,letterSpacing:4,textTransform:"uppercase",fontWeight:700,background:props.primary?"#0A0A0A":"transparent",color:props.primary?"#FFFFFF":"#0A0A0A",border:props.primary?"2px solid #0A0A0A":"2px solid #0A0A0A",borderRadius:0,cursor:"pointer",marginBottom:8,transition:"all .2s"}}>{props.children}</button>; }
 
 export default function App(){
   var stV=useState("home"),view=stV[0],setView=stV[1];
@@ -213,7 +213,7 @@ export default function App(){
   var streamRef=useRef(null);
 
   useEffect(function(){
-    try{var s=document.createElement("style");s.textContent='@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");*{font-family:"Quicksand",sans-serif !important;box-sizing:border-box}';document.head.appendChild(s);}catch(e){}
+    try{var s=document.createElement("style");s.textContent='@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap");*{box-sizing:border-box}body{font-family:"DM Sans",sans-serif;background:#F5F4F0}h1,h2,h3{font-family:"Playfair Display",serif}';document.head.appendChild(s);}catch(e){}
 
     // Check if user is already logged in
     supabase.auth.getSession().then(function(r){
@@ -315,70 +315,72 @@ export default function App(){
 
   // Show login/signup screen if not logged in
   if(!user) return (
-    <div style={{minHeight:"100vh",background:"linear-gradient(170deg,#FAF6EE 0%,#EDE7DC 100%)",display:"flex",alignItems:"center",justifyContent:"center",padding:"20px"}}>
-      <div style={{width:"100%",maxWidth:400,background:"rgba(255,253,248,.95)",borderRadius:20,padding:"40px 32px",border:"1px solid rgba(80,70,60,.1)",boxShadow:"0 8px 40px rgba(80,70,60,.08)"}}>
-        <div style={{textAlign:"center",marginBottom:28}}>
-          <h1 style={{fontSize:26,fontWeight:700,color:"#3A3530",margin:"0 0 4px",letterSpacing:1}}>MyHue</h1>
-          <div style={{fontSize:9,letterSpacing:5,textTransform:"uppercase",color:"#9A9088"}}>Your Colour Assistant</div>
-          <div style={{width:30,height:1.5,background:"#C8BEB0",margin:"12px auto 0",borderRadius:1}}/>
+    <div style={{minHeight:"100vh",background:"#0A0A0A",display:"flex",alignItems:"center",justifyContent:"center",padding:"20px"}}>
+      <div style={{width:"100%",maxWidth:420}}>
+        <div style={{textAlign:"center",marginBottom:40}}>
+          <div style={{fontSize:8,letterSpacing:8,textTransform:"uppercase",color:"#C9A96E",marginBottom:12}}>Personal Colour Analysis</div>
+          <h1 style={{fontSize:52,fontWeight:900,color:"#FFFFFF",margin:0,fontFamily:"'Playfair Display',serif",fontStyle:"italic",letterSpacing:-1}}>MyHue</h1>
+          <div style={{width:40,height:2,background:"#C9A96E",margin:"20px auto 0"}}/>
         </div>
 
-        <div style={{display:"flex",borderRadius:10,overflow:"hidden",border:"1px solid rgba(80,70,60,.12)",marginBottom:24}}>
-          {["signin","signup"].map(function(v){return(
-            <button key={v} onClick={function(){setAuthView(v);setAuthErr("");setAuthMsg("");}} style={{flex:1,padding:"10px",fontSize:11,letterSpacing:2,textTransform:"uppercase",fontWeight:600,border:"none",cursor:"pointer",background:authView===v?"#3A3530":"transparent",color:authView===v?"#FAF6EE":"#9A9088",transition:"all .2s"}}>
-              {v==="signin"?"Sign In":"Sign Up"}
-            </button>
-          );})}
+        <div style={{background:"#141414",border:"1px solid #2A2A2A",padding:"36px 32px"}}>
+          <div style={{display:"flex",borderBottom:"1px solid #2A2A2A",marginBottom:28}}>
+            {["signin","signup"].map(function(v){return(
+              <button key={v} onClick={function(){setAuthView(v);setAuthErr("");setAuthMsg("");}} style={{flex:1,padding:"12px",fontSize:9,letterSpacing:4,textTransform:"uppercase",fontWeight:700,border:"none",cursor:"pointer",background:"transparent",color:authView===v?"#C9A96E":"#555",borderBottom:authView===v?"2px solid #C9A96E":"2px solid transparent",transition:"all .2s",fontFamily:"'DM Sans',sans-serif"}}>
+                {v==="signin"?"Sign In":"Sign Up"}
+              </button>
+            );})}
+          </div>
+
+          {authErr && <div style={{background:"rgba(200,60,50,.12)",border:"1px solid rgba(200,60,50,.3)",padding:"10px 14px",fontSize:12,color:"#E87060",marginBottom:20,lineHeight:1.5}}>{authErr}</div>}
+          {authMsg && <div style={{background:"rgba(80,180,100,.1)",border:"1px solid rgba(80,180,100,.25)",padding:"10px 14px",fontSize:12,color:"#60C070",marginBottom:20,lineHeight:1.5}}>{authMsg}</div>}
+
+          <div style={{marginBottom:16}}>
+            <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:8}}>Email</div>
+            <input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="your@email.com"
+              style={{width:"100%",padding:"13px 16px",border:"1px solid #2A2A2A",borderRadius:0,fontSize:13,color:"#FFFFFF",background:"#0A0A0A",outline:"none",boxSizing:"border-box",fontFamily:"'DM Sans',sans-serif"}}/>
+          </div>
+          {authView!=="forgot" && (
+            <div style={{marginBottom:28}}>
+              <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#C9A96E",fontWeight:700,marginBottom:8}}>Password</div>
+              <input type="password" value={pass} onChange={function(e){setPass(e.target.value);}} placeholder="••••••••"
+                onKeyDown={function(e){if(e.key==="Enter")authView==="signin"?handleSignIn():handleSignUp();}}
+                style={{width:"100%",padding:"13px 16px",border:"1px solid #2A2A2A",borderRadius:0,fontSize:13,color:"#FFFFFF",background:"#0A0A0A",outline:"none",boxSizing:"border-box",fontFamily:"'DM Sans',sans-serif"}}/>
+            </div>
+          )}
+
+          <button onClick={authView==="signin"?handleSignIn:authView==="signup"?handleSignUp:handleForgot}
+            disabled={authBusy}
+            style={{width:"100%",padding:"16px",background:"#C9A96E",color:"#0A0A0A",border:"none",cursor:authBusy?"not-allowed":"pointer",fontSize:9.5,fontWeight:700,letterSpacing:4,textTransform:"uppercase",opacity:authBusy?.7:1,marginBottom:20,fontFamily:"'DM Sans',sans-serif"}}>
+            {authBusy?"Please wait…":authView==="signin"?"Sign In":authView==="signup"?"Create Account":"Send Reset Link"}
+          </button>
+
+          {authView==="signin" && (
+            <div style={{textAlign:"center"}}>
+              <button onClick={function(){setAuthView("forgot");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#555",background:"none",border:"none",cursor:"pointer",letterSpacing:1,textDecoration:"underline",fontFamily:"'DM Sans',sans-serif"}}>Forgot password?</button>
+            </div>
+          )}
+          {authView==="forgot" && (
+            <div style={{textAlign:"center"}}>
+              <button onClick={function(){setAuthView("signin");setAuthErr("");setAuthMsg("");}} style={{fontSize:10,color:"#555",background:"none",border:"none",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>← Back to sign in</button>
+            </div>
+          )}
         </div>
-
-        {authErr && <div style={{background:"rgba(180,60,50,.08)",border:"1px solid rgba(180,60,50,.2)",borderRadius:8,padding:"10px 12px",fontSize:12,color:"#B43C32",marginBottom:16,lineHeight:1.5}}>{authErr}</div>}
-        {authMsg && <div style={{background:"rgba(50,130,80,.08)",border:"1px solid rgba(50,130,80,.2)",borderRadius:8,padding:"10px 12px",fontSize:12,color:"#32825A",marginBottom:16,lineHeight:1.5}}>{authMsg}</div>}
-
-        <div style={{marginBottom:14}}>
-          <div style={{fontSize:9.5,letterSpacing:2.5,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:6}}>Email</div>
-          <input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="you@example.com"
-            style={{width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid rgba(80,70,60,.18)",fontSize:13,color:"#3A3530",background:"#FFFFFF",outline:"none",boxSizing:"border-box"}}/>
-        </div>
-        {authView!=="forgot" && (
-          <div style={{marginBottom:20}}>
-            <div style={{fontSize:9.5,letterSpacing:2.5,textTransform:"uppercase",color:"#8A8078",fontWeight:600,marginBottom:6}}>Password</div>
-            <input type="password" value={pass} onChange={function(e){setPass(e.target.value);}} placeholder="••••••••"
-              onKeyDown={function(e){if(e.key==="Enter")authView==="signin"?handleSignIn():handleSignUp();}}
-              style={{width:"100%",padding:"11px 14px",borderRadius:8,border:"1px solid rgba(80,70,60,.18)",fontSize:13,color:"#3A3530",background:"#FFFFFF",outline:"none",boxSizing:"border-box"}}/>
-          </div>
-        )}
-
-        <button onClick={authView==="signin"?handleSignIn:authView==="signup"?handleSignUp:handleForgot}
-          disabled={authBusy}
-          style={{width:"100%",padding:"13px",borderRadius:10,background:"#3A3530",color:"#FAF6EE",border:"none",cursor:authBusy?"not-allowed":"pointer",fontSize:11,fontWeight:700,letterSpacing:3,textTransform:"uppercase",opacity:authBusy?.7:1,marginBottom:14}}>
-          {authBusy?"Please wait…":authView==="signin"?"Sign In":authView==="signup"?"Create Account":"Send Reset Link"}
-        </button>
-
-        {authView==="signin" && (
-          <div style={{textAlign:"center"}}>
-            <button onClick={function(){setAuthView("forgot");setAuthErr("");setAuthMsg("");}} style={{fontSize:11,color:"#B8935A",background:"none",border:"none",cursor:"pointer",textDecoration:"underline"}}>Forgot password?</button>
-          </div>
-        )}
-        {authView==="forgot" && (
-          <div style={{textAlign:"center"}}>
-            <button onClick={function(){setAuthView("signin");setAuthErr("");setAuthMsg("");}} style={{fontSize:11,color:"#9A9088",background:"none",border:"none",cursor:"pointer"}}>← Back to sign in</button>
-          </div>
-        )}
       </div>
     </div>
   );
 
   return (
-    <div style={{minHeight:"100vh",background:"linear-gradient(170deg,#FAF6EE 0%,#F2EDE4 40%,#EDE7DC 100%)",color:"#3A3530"}}>
-    <div style={{maxWidth:580,margin:"0 auto",padding:"16px 16px 56px",opacity:fade?1:0,transform:fade?"translateY(0)":"translateY(8px)",transition:"all .26s"}}>
+    <div style={{minHeight:"100vh",background:"#F5F4F0",color:"#0A0A0A"}}>
+    <div style={{maxWidth:580,margin:"0 auto",padding:"0 16px 56px",opacity:fade?1:0,transform:fade?"translateY(0)":"translateY(8px)",transition:"all .26s"}}>
 
-    <header style={{textAlign:"center",padding:"16px 0 20px"}}>
-      <h1 style={{fontSize:28,fontWeight:700,margin:0,color:"#3A3530",letterSpacing:1}}>MyHue</h1>
-      <div style={{fontSize:9,letterSpacing:5,textTransform:"uppercase",color:"#9A9088",fontWeight:500,marginTop:4}}>Your Colour Assistant</div>
-      <div style={{width:30,height:1.5,background:"#C8BEB0",margin:"10px auto 6px",borderRadius:1}}/>
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-        <span style={{fontSize:10,color:"#9A9088"}}>{user.email}</span>
-        <button onClick={handleSignOut} style={{fontSize:9.5,letterSpacing:1.5,textTransform:"uppercase",color:"#9A9088",background:"none",border:"1px solid rgba(80,70,60,.15)",borderRadius:5,padding:"3px 10px",cursor:"pointer"}}>Sign out</button>
+    <header style={{textAlign:"center",padding:"32px 0 28px",borderBottom:"1px solid #0A0A0A",marginBottom:28}}>
+      <div style={{fontSize:8,letterSpacing:8,textTransform:"uppercase",color:"#C9A96E",fontWeight:600,marginBottom:10}}>Personal Colour Analysis</div>
+      <h1 style={{fontSize:42,fontWeight:900,margin:0,color:"#0A0A0A",letterSpacing:-1,fontFamily:"'Playfair Display',serif",fontStyle:"italic"}}>MyHue</h1>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginTop:12}}>
+        <span style={{fontSize:10,color:"#888",letterSpacing:1}}>{user.email}</span>
+        <span style={{color:"#DDD"}}>|</span>
+        <button onClick={handleSignOut} style={{fontSize:9.5,letterSpacing:2,textTransform:"uppercase",color:"#888",background:"none",border:"none",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>Sign out</button>
       </div>
     </header>
 
@@ -386,15 +388,18 @@ export default function App(){
       <div>
         {sp && (
           <Card mb={14}><div style={{textAlign:"center"}}>
-            <div style={{fontSize:28}}>{sp.e}</div>
-            <Lbl>Your Saved Palette</Lbl>
-            <h3 style={{fontSize:18,fontWeight:700,color:"#3A3530",margin:"0 0 8px"}}>{sp.n}</h3>
-            <div style={{display:"flex",gap:4,justifyContent:"center",marginBottom:10}}>{sp.c.slice(0,8).map(function(c,i){return <Sw key={i} color={c} size={26}/>;})}</div>
-            <Btn onClick={function(){setRes(saved.res);if(saved.ans)setAns(saved.ans);go("result");}}>View Full Results</Btn>
+            <div style={{fontSize:32,marginBottom:4}}>{sp.e}</div>
+            <Lbl>Your Saved Season</Lbl>
+            <h3 style={{fontSize:22,fontWeight:700,color:"#0A0A0A",margin:"0 0 12px",fontFamily:"'Playfair Display',serif",fontStyle:"italic"}}>{sp.n}</h3>
+            <div style={{display:"flex",gap:3,justifyContent:"center",marginBottom:14}}>{sp.c.slice(0,8).map(function(c,i){return <Sw key={i} color={c} size={28}/>;})}</div>
+            <Btn onClick={function(){setRes(saved.res);if(saved.ans)setAns(saved.ans);go("result");}}>View My Results</Btn>
           </div></Card>
         )}
-        <p style={{textAlign:"center",fontSize:14,lineHeight:1.7,color:"#5A524A",maxWidth:440,margin:"0 auto 20px"}}>Discover which colours create natural harmony with your colouring, built on the <strong>Sci/ART 12-tone system</strong>.</p>
-        <Btn primary onClick={function(){go("guide")}}>{sp?"Retake Analysis":"Start My Analysis"}</Btn>
+        <div style={{marginBottom:24,paddingBottom:24,borderBottom:"1px solid #E0E0E0"}}>
+          <p style={{fontSize:14,lineHeight:1.8,color:"#444",margin:"0 0 4px",fontFamily:"'DM Sans',sans-serif"}}>Discover the colours that work in perfect harmony with your natural colouring.</p>
+          <p style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",color:"#C9A96E",margin:0}}>Built on the Sci/ART 12-tone system</p>
+        </div>
+        <Btn primary onClick={function(){go("guide")}}>{sp?"Retake Analysis":"Begin My Analysis"}</Btn>
         <Btn onClick={function(){go("theory")}}>Understand the Theory</Btn>
       </div>
     )}
@@ -518,11 +523,11 @@ export default function App(){
         </div>
 
         {/* Season header — visible to all */}
-        <div style={{background:GR[p.s],borderRadius:16,padding:"22px 16px 18px",textAlign:"center",marginBottom:10,border:"1px solid rgba(80,70,60,.06)"}}>
-          <div style={{fontSize:34,marginBottom:2}}>{p.e}</div>
-          <div style={{fontSize:8.5,letterSpacing:4,textTransform:"uppercase",color:"#8A8078",fontWeight:600}}>Your Tone</div>
-          <h2 style={{fontSize:24,fontWeight:700,color:"#3A3530",margin:"2px 0 3px"}}>{p.n}</h2>
-          <div style={{fontSize:10,color:"#6B6560"}}><strong>{p.d}</strong> dominant · <strong>{p.d2}</strong> secondary</div>
+        <div style={{background:GR[p.s],borderRadius:0,padding:"32px 24px",textAlign:"center",marginBottom:10,border:"none",position:"relative",overflow:"hidden"}}>
+          <div style={{fontSize:9,letterSpacing:6,textTransform:"uppercase",color:"#C9A96E",marginBottom:8}}>Your Season</div>
+          <div style={{fontSize:48,marginBottom:4}}>{p.e}</div>
+          <h2 style={{fontSize:32,fontWeight:900,color:"#FFFFFF",margin:"0 0 6px",fontFamily:"'Playfair Display',serif",fontStyle:"italic",letterSpacing:-0.5}}>{p.n}</h2>
+          <div style={{fontSize:10,color:"rgba(255,255,255,.5)",letterSpacing:3,textTransform:"uppercase"}}>{p.d} · {p.d2}</div>
         </div>
 
         {/* Description — visible to all */}
