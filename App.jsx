@@ -280,17 +280,22 @@ export default function App(){
     },100);
   }
   function applyFaceMask(srcCanvas){
-    var w=srcCanvas.width,h=srcCanvas.height;
-    var out=document.createElement("canvas");out.width=w;out.height=h;
+    var sw=srcCanvas.width,sh=srcCanvas.height;
+    // Step 1: Square crop — center horizontally, bias to top for face
+    var size=Math.min(sw,sh);
+    var sx=(sw-size)/2;
+    var sy=Math.max(0,(sh-size)*0.2); // bias toward top where face is
+    // Step 2: Output canvas with white background
+    var out=document.createElement("canvas");
+    out.width=size;out.height=size;
     var ctx=out.getContext("2d");
-    // White background
-    ctx.fillStyle="#FFFFFF";ctx.fillRect(0,0,w,h);
-    // Draw only the central oval (face area) from the source
+    ctx.fillStyle="#FFFFFF";ctx.fillRect(0,0,size,size);
+    // Step 3: Clip to tight oval and draw cropped face area
     ctx.save();
     ctx.beginPath();
-    ctx.ellipse(w*0.5,h*0.42,w*0.42,h*0.5,0,0,Math.PI*2);
+    ctx.ellipse(size*0.5,size*0.5,size*0.46,size*0.5,0,0,Math.PI*2);
     ctx.clip();
-    ctx.drawImage(srcCanvas,0,0);
+    ctx.drawImage(srcCanvas,sx,sy,size,size,0,0,size,size);
     ctx.restore();
     return out.toDataURL("image/jpeg",0.85);
   }
@@ -433,16 +438,25 @@ export default function App(){
             <div style={{fontSize:9,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:10,fontFamily:"'Outfit',sans-serif"}}>Your Photo</div>
             {camOn ? (
               <div style={{textAlign:"center"}}>
-                <div style={{position:"relative",display:"inline-block"}}>
-                  <video ref={vidRef} style={{width:"100%",maxWidth:160,borderRadius:8}} playsInline muted/>
-                  {/* Oval guide overlay */}
-                  <svg style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",pointerEvents:"none"}} viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <rect width="100" height="100" fill="rgba(255,250,249,0.5)"/>
-                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="transparent" stroke="#8B2D3F" strokeWidth="1" strokeDasharray="3,2"/>
-                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="none"/>
-                    <rect width="100" height="100" fill="rgba(255,250,249,0.35)"/>
-                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="white" style={{mixBlendMode:"destination-out"}}/>
-                  </svg>
+                <div style={{position:"relative",display:"inline-block",width:"100%",maxWidth:160}}>
+                  {/* Video clipped to portrait ratio */}
+                  <div style={{position:"relative",width:"100%",paddingBottom:"100%",overflow:"hidden",borderRadius:8,background:"#f0f0f0"}}>
+                    <video ref={vidRef} style={{position:"absolute",top:"-10%",left:"50%",transform:"translateX(-50%)",height:"120%",width:"auto",minWidth:"100%"}} playsInline muted/>
+                    {/* Oval guide overlay */}
+                    <svg style={{position:"absolute",inset:0,width:"100%",height:"100%"}} viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <mask id="ovalMask">
+                          <rect width="100" height="100" fill="white"/>
+                          <ellipse cx="50" cy="50" rx="46" ry="50" fill="black"/>
+                        </mask>
+                      </defs>
+                      {/* White outside the oval */}
+                      <rect width="100" height="100" fill="rgba(255,250,249,0.75)" mask="url(#ovalMask)"/>
+                      {/* Oval border */}
+                      <ellipse cx="50" cy="50" rx="46" ry="50" fill="none" stroke="#8B2D3F" strokeWidth="1.5" strokeDasharray="4,3"/>
+                    </svg>
+                  </div>
+                  <p style={{fontSize:9.5,color:"#8B2D3F",margin:"6px 0 0",fontFamily:"'Outfit',sans-serif"}}>Centre your face in the oval</p>
                 </div>
                 <canvas ref={canRef} style={{display:"none"}}/>
                 <div style={{marginTop:8,display:"flex",gap:6,justifyContent:"center"}}>
