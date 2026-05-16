@@ -12,6 +12,7 @@ var P={
   bs:{s:"Spring",n:"Bright Spring",e:"🌺",d:"Brightness",d2:"Warmth",mu:"H:Med-warm V:Med C:High",fl:"Bright Winter and True Spring",si:["bw","ts"],
     desc:"The most vivid Spring. Maximum clarity and saturation — muted or greyed colours look dull against you.",
     sk:"Clear warm-neutral — luminous ivory, light golden, warm beige.",ey:"Vivid blue, bright green, bright hazel, turquoise.",ha:"Golden brown, auburn, copper, dark blonde with golden highlights.",
+    hair:{best:[{n:"Copper",h:"#A0401A"},{n:"Golden Auburn",h:"#8B3A18"},{n:"Warm Golden Blonde",h:"#C8A040"},{n:"Bright Strawberry",h:"#C07040"}],avoid:"Ash, cool brown, flat dark colour, platinum",tip:"Your palette loves warmth and clarity — vivid warm tones like copper and golden auburn bring your colouring alive. Avoid anything muted, ashy, or flat."},
     c:["#E04030","#F06830","#F5B800","#E8D840","#40B868","#00A088","#0098C0","#3872B0","#7850A0","#D84890","#F05878","#F0A098"],
     cn:["Flame Red","Tangerine","Sunflower","Citrine","Spring Green","Jade","Cerulean","Cobalt","Amethyst","Fuchsia","Coral Pink","Salmon"],
     ic:null,ne:["#383838","#586050","#887868","#C0B8A0","#E8E0D0","#F5F0E8"],mt:"Bright yellow gold, polished rose gold",
@@ -21,6 +22,7 @@ var P={
   ts:{s:"Spring",n:"True Spring",e:"🌻",d:"Warmth",d2:"Brightness",mu:"H:Warm V:Med C:Med-high",fl:"Bright Spring and Light Spring",si:["bs","ls"],
     desc:"The warmest Spring — golden, sunny, fresh. Rich rather than pastel.",
     sk:"Distinctly warm — golden, peachy, warm ivory.",ey:"Golden brown, warm hazel, green with golden flecks, amber.",ha:"Strawberry blonde, golden blonde, honey brown, copper.",
+    hair:{best:[{n:"Golden Blonde",h:"#C8A030"},{n:"Honey Brown",h:"#9A7020"},{n:"Strawberry Blonde",h:"#C07848"},{n:"Warm Copper",h:"#9A4820"}],avoid:"Ash blonde, cool brown, black, platinum",tip:"Golden and honey tones are your natural sweet spot. Keep everything warm — avoid any ash or cool tones which will fight your colouring."},
     c:["#C84838","#E07040","#E8A028","#E0C840","#48A850","#28A098","#48B0A8","#2898A8","#C86098","#D88060","#D8A860","#88B858"],
     cn:["Tomato Red","Burnt Orange","Marigold","Buttercup","Leaf Green","Teal","Aqua","Ocean","Orchid","Terracotta","Honey","Apple"],
     ic:null,ne:["#483020","#685040","#988060","#C8B898","#E8DCC8","#F8F2E8"],mt:"Rich yellow gold, warm brass, antique gold",
@@ -30,6 +32,7 @@ var P={
   ls:{s:"Spring",n:"Light Spring",e:"🌸",d:"Lightness",d2:"Warmth",mu:"H:Med-warm V:Light C:Med",fl:"True Spring and Light Summer",si:["ts","lsu"],
     desc:"The most delicate Spring — light, fresh, gently warm. No black, no stark white.",
     sk:"Light warm-neutral — light ivory, peachy fair.",ey:"Light blue, light green, light warm hazel, soft golden brown.",ha:"Light golden blonde, warm light brown, strawberry blonde.",
+    hair:{best:[{n:"Light Golden Blonde",h:"#D4B060"},{n:"Strawberry Blonde",h:"#C89060"},{n:"Warm Light Brown",h:"#A07840"},{n:"Champagne Blonde",h:"#DEC880"}],avoid:"Dark colours, ash, black, stark platinum",tip:"Keep it light and warm — delicate golden or strawberry tones work beautifully. Dark or cool colours overwhelm your gentle colouring."},
     c:["#E89088","#F0A880","#E8C070","#E8E0A0","#80C8A0","#68BEB0","#80B8C8","#90A8C8","#C098C0","#F0B0B8","#F0C890","#A8D098"],
     cn:["Rose","Apricot","Chamomile","Primrose","Mint","Seafoam","Powder Blue","Periwinkle","Wisteria","Blush","Peach","Pistachio"],
     ic:null,ne:["#706858","#8C8070","#A89888","#D0C8B8","#E8E4D8","#FAF6F0"],mt:"Light gold, champagne, soft rose gold",
@@ -39,6 +42,7 @@ var P={
   lsu:{s:"Summer",n:"Light Summer",e:"🦋",d:"Lightness",d2:"Coolness",mu:"H:Med-cool V:Light C:Med",fl:"Light Spring and True Summer",si:["ls","tsu"],
     desc:"The brightest Summer — light, airy, cool. Powder pastels and gentle cool tones.",
     sk:"Light cool-neutral — porcelain, cool fair.",ey:"Soft blue, grey-blue, light cool green.",ha:"Ash blonde, cool light brown, mousy brown.",
+    hair:{best:[{n:"Ash Blonde",h:"#C0B898"},{n:"Cool Light Brown",h:"#9A9080"},{n:"Platinum Ash",h:"#D8D4C8"},{n:"Sandy Ash",h:"#B8AC90"}],avoid:"Warm golden, copper, red, warm brown",tip:"Cool and light is your signature — ash blonde and platinum tones keep your cool clarity intact. Warm or golden tones will look jarring against your colouring."},
     c:["#D08898","#CC8888","#D8B888","#C8C898","#88B898","#78B0B8","#88A8C8","#9898C0","#B890C0","#E0A0A8","#98C0B0","#B8B8D0"],
     cn:["Dusty Rose","Rosewood","Wheat","Sage","Sea Glass","Steel Blue","Cornflower","Lavender","Mauve","Pink Sand","Celadon","Lilac"],
     ic:null,ne:["#606870","#788090","#98A0A8","#C0C0C8","#E0DDE0","#F5F2F2"],mt:"White gold, platinum, soft silver",
@@ -48,6 +52,7 @@ var P={
   tsu:{s:"Summer",n:"True Summer",e:"🌊",d:"Coolness",d2:"Mutedness",mu:"H:Cool V:Med C:Med",fl:"Light Summer and Soft Summer",si:["lsu","ssu"],
     desc:"The coolest Summer — roses, slate blues, periwinkle, cool berries.",
     sk:"Cool — cool beige, pink-neutral fair, cool rose.",ey:"Blue-grey, soft cool blue, cool green.",ha:"Ash brown, medium cool brown, mousy brown.",
+    hair:{best:[{n:"Ash Brown",h:"#7A7868"},{n:"Cool Medium Brown",h:"#686058"},{n:"Dark Ash Blonde",h:"#A09880"},{n:"Cool Dark Brown",h:"#504840"}],avoid:"Golden, auburn, copper, warm red",tip:"Cool, muted brown tones are your ideal. Anything with warmth — golden, auburn or red — will clash with your naturally cool undertone."},
     c:["#B05070","#B87088","#A89878","#8CA080","#609088","#5890A0","#5878A8","#6868A8","#906898","#C88888","#6898A0","#8888B0"],
     cn:["Raspberry","Dusky Pink","Khaki","Olive Sage","Eucalyptus","Slate Teal","Denim","Indigo","Plum","Old Rose","Verdigris","Storm Blue"],
     ic:null,ne:["#484858","#606068","#808088","#A8A8B0","#D0D0D4","#ECEAEC"],mt:"Silver, white gold, pewter",
@@ -57,6 +62,7 @@ var P={
   ssu:{s:"Summer",n:"Soft Summer",e:"🌫️",d:"Mutedness",d2:"Coolness",mu:"H:Med-cool V:Med C:Low",fl:"True Summer and Soft Autumn",si:["tsu","sa"],
     desc:"The most muted cool season. Gently greyed, low-contrast, dusty and understated.",
     sk:"Neutral-cool — muted beige, cool-neutral, olive-grey.",ey:"Grey-green, grey-blue, soft hazel.",ha:"Ash brown, mousy brown, cool medium brown.",
+    hair:{best:[{n:"Soft Ash Brown",h:"#888078"},{n:"Mousy Brown",h:"#807868"},{n:"Cool Medium Brown",h:"#706860"},{n:"Greyed Brown",h:"#908880"}],avoid:"Vivid colours, jet black, bright blonde, copper",tip:"Soft, greyed brown tones are perfect for you — they match your naturally blended, muted colouring. Avoid anything vivid or high contrast."},
     c:["#A08080","#A08888","#A0A088","#90A088","#709888","#789090","#788098","#8880A0","#988890","#B09898","#789898","#908C90"],
     cn:["Cocoa Rose","Ash Rose","Stone","Lichen","Muted Teal","Pewter","Slate","Heather","Mauve Taupe","Dusty Pink","Sage Grey","Pebble"],
     ic:null,ne:["#505050","#686860","#888880","#A8A498","#C8C4B8","#E8E4DC"],mt:"Brushed silver, matte pewter",
@@ -66,6 +72,7 @@ var P={
   sa:{s:"Autumn",n:"Soft Autumn",e:"🌾",d:"Mutedness",d2:"Warmth",mu:"H:Med-warm V:Med C:Low",fl:"Soft Summer and True Autumn",si:["ssu","ta"],
     desc:"The most muted warm palette. Warm but gently greyed — nuts, rose, wheat, sage.",
     sk:"Warm-neutral, muted — warm beige, golden-grey.",ey:"Warm hazel, soft green, olive.",ha:"Mousy brown with golden tones, warm ash brown.",
+    hair:{best:[{n:"Warm Ash Brown",h:"#907860"},{n:"Golden Brown",h:"#8A6830"},{n:"Soft Caramel",h:"#A07840"},{n:"Muted Auburn",h:"#8A4828"}],avoid:"Vivid red, icy tones, platinum, jet black",tip:"Warm but softly muted tones are your sweet spot — caramel and warm ash brown add gentle warmth without overpowering your naturally blended look."},
     c:["#B08068","#A88878","#B8A870","#A0A078","#80987C","#789088","#788898","#8888A0","#98808C","#C09888","#8FA080","#A89888"],
     cn:["Clay","Driftwood","Oat","Moss","Sage","Eucalyptus","Dusty Blue","Muted Lilac","Rose Taupe","Sandstone","Fern","Pebble"],
     ic:null,ne:["#484038","#5E5048","#807060","#A89888","#C8C0B0","#E8E0D4"],mt:"Antique gold, matte brass, brushed rose gold",
@@ -75,6 +82,7 @@ var P={
   ta:{s:"Autumn",n:"True Autumn",e:"🍂",d:"Warmth",d2:"Mutedness",mu:"H:Warm V:Med C:Med",fl:"Soft Autumn and Dark Autumn",si:["sa","da"],
     desc:"The quintessential Autumn. Deeply warm — rich rather than bright. Earthy, organic.",
     sk:"Distinctly warm — golden, warm olive, warm bronze.",ey:"Warm brown, dark hazel, olive green, amber.",ha:"Auburn, copper, warm dark brown, chestnut.",
+    hair:{best:[{n:"Auburn",h:"#722A12"},{n:"Copper",h:"#9A4018"},{n:"Chestnut",h:"#602818"},{n:"Warm Dark Brown",h:"#4A2810"}],avoid:"Ash, cool tones, platinum, blue-black",tip:"Rich warm tones — auburn, copper and chestnut — are your most powerful choices. Your colouring is built for depth and warmth, so lean into it."},
     c:["#B84830","#C07838","#C89828","#9C9840","#588C50","#3A7868","#307890","#506898","#886098","#C06858","#807840","#B88840"],
     cn:["Paprika","Pumpkin","Mustard","Olive","Forest","Spruce","Petrol","Dusk Blue","Aubergine","Sienna","Bronze","Amber"],
     ic:null,ne:["#382818","#503820","#786040","#A89068","#C8B898","#ECE0C8"],mt:"Rich yellow gold, bronze, warm copper",
@@ -84,6 +92,7 @@ var P={
   da:{s:"Autumn",n:"Dark Autumn",e:"🌰",d:"Depth",d2:"Warmth",mu:"H:Med-warm V:Dark C:Med-high",fl:"True Autumn and Dark Winter",si:["ta","dw"],
     desc:"The deepest Autumn — warmth meets depth. Deep spice tones. Includes icies.",
     sk:"Warm-neutral with depth — olive, warm brown, deep golden.",ey:"Dark brown, deep hazel, dark olive.",ha:"Dark warm brown, deep auburn, dark chestnut.",
+    hair:{best:[{n:"Dark Warm Brown",h:"#3A1A08"},{n:"Deep Auburn",h:"#5A1A08"},{n:"Dark Chestnut",h:"#401408"},{n:"Rich Espresso",h:"#2A1008"}],avoid:"Pastels, icy blonde, cool ash, blue-black",tip:"Go deep and warm — dark chestnut, espresso and deep auburn are your most flattering choices. Your palette thrives on depth, so embrace it."},
     c:["#982820","#B05C30","#B88818","#688830","#286848","#286058","#2A5878","#404878","#6E3870","#A05048","#486828","#C07818"],
     cn:["Oxblood","Burnt Sienna","Dark Gold","Khaki","Bottle Green","Deep Teal","Prussian","Navy Plum","Mulberry","Brick","Hunter","Toffee"],
     ic:["#F5E8E0","#E8E8D4","#E0E8E8","#E8E0EC"],ne:["#201010","#382818","#584830","#887050","#B8A080","#E8DCC8"],mt:"Burnished gold, dark bronze, aged copper",
@@ -93,6 +102,7 @@ var P={
   dw:{s:"Winter",n:"Dark Winter",e:"🌑",d:"Depth",d2:"Coolness",mu:"H:Med-cool V:Dark C:Med-high",fl:"Dark Autumn and True Winter",si:["da","tw"],
     desc:"The deepest Winter. Dark, dramatic, cool — dark jewel tones. Includes icies.",
     sk:"Cool-neutral — porcelain to deep cool brown.",ey:"Very dark brown, dark brown-black, deep cool blue.",ha:"Black, dark ash brown, dark cool brown.",
+    hair:{best:[{n:"Blue-Black",h:"#0A0814"},{n:"Dark Cool Brown",h:"#201818"},{n:"Dark Ash Brown",h:"#282020"},{n:"Espresso",h:"#180C08"}],avoid:"Warm tones, golden, copper, auburn, blonde",tip:"Dark and cool is your power zone — blue-black and deep cool brown create maximum drama. Warm tones like auburn or golden blonde will look off against your cool depth."},
     c:["#941C30","#A03840","#A88818","#487830","#1E5E4A","#205868","#1E3A6E","#3A2878","#682060","#B03050","#184838","#782848"],
     cn:["Garnet","Crimson","Antique Gold","Pine","Emerald","Dark Teal","Sapphire","Royal Purple","Damson","Claret","Forest","Wine"],
     ic:["#F0E8EC","#E8ECF0","#E0F0EC","#F0ECE0"],ne:["#0A0A10","#181820","#303040","#606878","#A0A8B0","#E8E8EC"],mt:"Silver, dark gunmetal, white gold",
@@ -102,6 +112,7 @@ var P={
   tw:{s:"Winter",n:"True Winter",e:"❄️",d:"Coolness",d2:"Brightness",mu:"H:Cool V:Med C:Med-high",fl:"Dark Winter and Bright Winter",si:["dw","bw"],
     desc:"The coolest Winter — frosty, brilliant, high-contrast. Black and white are power neutrals.",
     sk:"Distinctly cool — porcelain, cool olive, cool beige.",ey:"Dark cool brown, icy blue, grey-blue, vivid cool green.",ha:"Black with blue sheen, dark ash brown. Or silver/white.",
+    hair:{best:[{n:"Blue-Black",h:"#080812"},{n:"Dark Ash Brown",h:"#242020"},{n:"Cool Black",h:"#0A0A10"},{n:"Silver White",h:"#D8D8E0"}],avoid:"Warm brown, golden, auburn, copper, warm blonde",tip:"True contrast is your signature — cool black or dark ash brown are ideal. If going lighter, skip blonde entirely and go straight to silver or icy white for maximum impact."},
     c:["#C01030","#B82858","#887820","#286828","#186058","#104878","#182870","#381878","#781858","#D83868","#004050","#5838A0"],
     cn:["True Red","Magenta","Olive Gold","Emerald","Deep Jade","Marine","Navy","Violet","Raspberry","Hot Pink","Dark Teal","Iris"],
     ic:["#F0E4EC","#E4E8F4","#E0F0EC","#F2ECF4"],ne:["#000000","#181828","#404858","#808898","#C0C8D0","#FFFFFF"],mt:"Cool silver, polished platinum",
@@ -111,6 +122,7 @@ var P={
   bw:{s:"Winter",n:"Bright Winter",e:"💎",d:"Brightness",d2:"Coolness",mu:"H:Med-cool V:Med C:High",fl:"True Winter and Bright Spring",si:["tw","bs"],
     desc:"The most vivid cool palette. Maximum saturation. Electric jewel tones.",
     sk:"Clear cool-neutral — porcelain, cool-neutral beige.",ey:"Bright blue, vivid green, clear cool hazel.",ha:"Dark brown, black. Or very bright blonde.",
+    hair:{best:[{n:"Cool Dark Brown",h:"#1E1418"},{n:"Jet Black",h:"#080808"},{n:"Icy Platinum",h:"#E4E8F4"},{n:"Blue-Black",h:"#0A0814"}],avoid:"Warm blonde, golden highlights, auburn, copper, warm brown",tip:"Your natural dark brown is your greatest asset — high contrast is your superpower. If going lighter, skip warm blonde entirely and go icy platinum cool. Warm highlights will wash out your striking colouring."},
     c:["#D01030","#E02068","#E0B800","#20A848","#009078","#0078B8","#003CC8","#6020C0","#A818A0","#F04088","#008888","#8830D0"],
     cn:["Scarlet","Fuchsia","Citron","Emerald","Jade","Azure","Cobalt","Purple","Magenta","Hot Pink","Teal","Violet"],
     ic:null,ne:["#080818","#202038","#484868","#9898B0","#D8D8E0","#F8F8FF"],mt:"Bright silver, white gold, platinum",
@@ -200,6 +212,7 @@ export default function App(){
   var stAuthView=useState("signin"),authView=stAuthView[0],setAuthView=stAuthView[1];
   var stEmail=useState(""),email=stEmail[0],setEmail=stEmail[1];
   var stPass=useState(""),pass=stPass[0],setPass=stPass[1];
+  var stName=useState(""),name=stName[0],setName=stName[1];
   var stAuthErr=useState(""),authErr=stAuthErr[0],setAuthErr=stAuthErr[1];
   var stAuthMsg=useState(""),authMsg=stAuthMsg[0],setAuthMsg=stAuthMsg[1];
   var stAuthBusy=useState(false),authBusy=stAuthBusy[0],setAuthBusy=stAuthBusy[1];
@@ -236,7 +249,7 @@ export default function App(){
   }
   async function handleSignUp(){
     setAuthBusy(true);setAuthErr("");setAuthMsg("");
-    var r=await supabase.auth.signUp({email:email,password:pass});
+    var r=await supabase.auth.signUp({email:email,password:pass,options:{data:{full_name:name}}});
     if(r.error){setAuthErr(r.error.message);}
     else{setAuthMsg("Check your email to confirm your account, then sign in.");}
     setAuthBusy(false);
@@ -266,10 +279,26 @@ export default function App(){
       }).catch(function(){setCamOn(false);setErr("Camera access denied.");});
     },100);
   }
+  function applyFaceMask(srcCanvas){
+    var w=srcCanvas.width,h=srcCanvas.height;
+    var out=document.createElement("canvas");out.width=w;out.height=h;
+    var ctx=out.getContext("2d");
+    // White background
+    ctx.fillStyle="#FFFFFF";ctx.fillRect(0,0,w,h);
+    // Draw only the central oval (face area) from the source
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(w*0.5,h*0.42,w*0.42,h*0.5,0,0,Math.PI*2);
+    ctx.clip();
+    ctx.drawImage(srcCanvas,0,0);
+    ctx.restore();
+    return out.toDataURL("image/jpeg",0.85);
+  }
   function capture(){
     if(!vidRef.current||!canRef.current) return;
     var v=vidRef.current,c=canRef.current;c.width=v.videoWidth;c.height=v.videoHeight;
-    c.getContext("2d").drawImage(v,0,0);setPh(c.toDataURL("image/jpeg",0.85));stopCam();
+    c.getContext("2d").drawImage(v,0,0);
+    setPh(applyFaceMask(c));stopCam();
   }
   function stopCam(){
     if(streamRef.current){streamRef.current.getTracks().forEach(function(t){t.stop();});streamRef.current=null;}setCamOn(false);
@@ -340,6 +369,13 @@ export default function App(){
             <input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="your@email.com"
               style={{width:"100%",padding:"12px 16px",border:"1px solid rgba(139,45,63,.2)",borderRadius:8,fontSize:13,color:"#2A1A1E",background:"#FFFAF9",outline:"none",boxSizing:"border-box",fontFamily:"'Outfit',sans-serif"}}/>
           </div>
+          {authView==="signup" && (
+            <div style={{marginBottom:16}}>
+              <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:8,fontFamily:"'Outfit',sans-serif"}}>Your Name</div>
+              <input type="text" value={name} onChange={function(e){setName(e.target.value);}} placeholder="Jane Smith"
+                style={{width:"100%",padding:"12px 16px",border:"1px solid rgba(139,45,63,.2)",borderRadius:8,fontSize:13,color:"#2A1A1E",background:"#FFFAF9",outline:"none",boxSizing:"border-box",fontFamily:"'Outfit',sans-serif"}}/>
+            </div>
+          )}
           {authView!=="forgot" && (
             <div style={{marginBottom:24}}>
               <div style={{fontSize:8,letterSpacing:4,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:8,fontFamily:"'Outfit',sans-serif"}}>Password</div>
@@ -379,7 +415,9 @@ export default function App(){
       <h1 style={{fontSize:56,fontWeight:300,margin:"0 0 4px",color:"#2A1A1E",letterSpacing:2,fontFamily:"'Cormorant',serif",fontStyle:"italic",lineHeight:1}}>MyHue</h1>
       <div style={{width:36,height:1,background:"#8B2D3F",margin:"14px auto 14px",opacity:0.4}}/>
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:10}}>
-        <span style={{fontSize:12,color:"#C4899A",fontFamily:"'Outfit',sans-serif"}}>{user.email}</span>
+        <span style={{fontSize:12,color:"#C4899A",fontFamily:"'Outfit',sans-serif"}}>
+          {user?.user_metadata?.full_name ? "Welcome, "+user.user_metadata.full_name : user.email}
+        </span>
         <span style={{color:"#E8D0D0"}}>·</span>
         <button onClick={handleSignOut} style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",color:"#C4899A",background:"none",border:"none",cursor:"pointer",fontFamily:"'Outfit',sans-serif"}}>Sign out</button>
       </div>
@@ -387,8 +425,69 @@ export default function App(){
 
     {view==="home" && (
       <div>
+        {/* Top row: Photo on left, Guidance on right */}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
+
+          {/* LEFT: Take a photo */}
+          <div style={{background:"#FFFAF9",borderRadius:12,padding:"16px 14px",border:"1px solid rgba(139,45,63,.1)"}}>
+            <div style={{fontSize:9,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:10,fontFamily:"'Outfit',sans-serif"}}>Your Photo</div>
+            {camOn ? (
+              <div style={{textAlign:"center"}}>
+                <div style={{position:"relative",display:"inline-block"}}>
+                  <video ref={vidRef} style={{width:"100%",maxWidth:160,borderRadius:8}} playsInline muted/>
+                  {/* Oval guide overlay */}
+                  <svg style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",pointerEvents:"none"}} viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <rect width="100" height="100" fill="rgba(255,250,249,0.5)"/>
+                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="transparent" stroke="#8B2D3F" strokeWidth="1" strokeDasharray="3,2"/>
+                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="none"/>
+                    <rect width="100" height="100" fill="rgba(255,250,249,0.35)"/>
+                    <ellipse cx="50" cy="42" rx="42" ry="50" fill="white" style={{mixBlendMode:"destination-out"}}/>
+                  </svg>
+                </div>
+                <canvas ref={canRef} style={{display:"none"}}/>
+                <div style={{marginTop:8,display:"flex",gap:6,justifyContent:"center"}}>
+                  <button onClick={capture} style={{padding:"8px 12px",borderRadius:20,background:"#8B2D3F",color:"#FFF",border:"none",cursor:"pointer",fontSize:10,fontWeight:600,fontFamily:"'Outfit',sans-serif"}}>Capture</button>
+                  <button onClick={stopCam} style={{padding:"8px 10px",borderRadius:20,background:"transparent",color:"#8B2D3F",border:"1px solid #8B2D3F",cursor:"pointer",fontSize:10,fontFamily:"'Outfit',sans-serif"}}>Cancel</button>
+                </div>
+              </div>
+            ) : ph ? (
+              <div style={{textAlign:"center"}}>
+                <div style={{position:"relative",display:"inline-block"}}>
+                  <img src={ph} alt="" style={{width:100,height:120,objectFit:"cover",borderRadius:50,border:"3px solid rgba(139,45,63,.15)"}}/>
+                  <button onClick={function(){setPh(null);}} style={{position:"absolute",top:-4,right:-4,width:20,height:20,borderRadius:"50%",background:"#8B2D3F",color:"#FFF",border:"none",cursor:"pointer",fontSize:11,lineHeight:"20px"}}>×</button>
+                </div>
+                <p style={{fontSize:10,color:"#8B2D3F",margin:"8px 0 0",fontFamily:"'Outfit',sans-serif"}}>✓ Photo saved</p>
+              </div>
+            ) : (
+              <div style={{textAlign:"center"}}>
+                <div style={{width:64,height:64,borderRadius:"50%",background:"rgba(139,45,63,.06)",border:"2px dashed rgba(139,45,63,.2)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 10px",fontSize:24}}>📷</div>
+                <button onClick={startCam} style={{width:"100%",padding:"9px",borderRadius:20,background:"#8B2D3F",color:"#FFF",border:"none",cursor:"pointer",fontSize:10,fontWeight:600,letterSpacing:1,fontFamily:"'Outfit',sans-serif",marginBottom:6}}>Take Photo</button>
+                <label style={{display:"block",width:"100%",padding:"8px",borderRadius:20,background:"transparent",color:"#8B2D3F",border:"1px solid #8B2D3F",cursor:"pointer",fontSize:10,fontWeight:600,letterSpacing:1,fontFamily:"'Outfit',sans-serif",textAlign:"center",boxSizing:"border-box"}}>
+                  Upload
+                  <input type="file" accept="image/*" style={{display:"none"}} onChange={function(e){var fi=e.target.files&&e.target.files[0];if(fi){var rd=new FileReader();rd.onload=function(ev){setPh(ev.target.result);};rd.readAsDataURL(fi);}}}/>
+                </label>
+              </div>
+            )}
+          </div>
+
+          {/* RIGHT: Guidance */}
+          <div style={{background:"#FFFAF9",borderRadius:12,padding:"16px 14px",border:"1px solid rgba(139,45,63,.1)"}}>
+            <div style={{fontSize:9,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:10,fontFamily:"'Outfit',sans-serif"}}>Photo Tips</div>
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              {[["☀️","Natural light"],["🧴","No makeup"],["💇","Natural hair"],["📷","No filters"]].map(function(x,i){return(
+                <div key={i} style={{display:"flex",alignItems:"center",gap:8}}>
+                  <span style={{fontSize:14}}>{x[0]}</span>
+                  <span style={{fontSize:11,color:"#5A424A",fontFamily:"'Outfit',sans-serif"}}>{x[1]}</span>
+                </div>
+              );})}
+              <p style={{fontSize:10,color:"#C4899A",fontStyle:"italic",margin:"4px 0 0",lineHeight:1.5,fontFamily:"'Outfit',sans-serif"}}>We'll automatically remove the background — no white top needed!</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Saved result */}
         {sp && (
-          <Card mb={16}><div style={{textAlign:"center"}}>
+          <Card mb={14}><div style={{textAlign:"center"}}>
             <div style={{fontSize:32,marginBottom:4}}>{sp.e}</div>
             <Lbl>Your Saved Season</Lbl>
             <h3 style={{fontSize:26,fontWeight:300,color:"#2A1A1E",margin:"0 0 14px",fontFamily:"'Cormorant',serif",fontStyle:"italic"}}>{sp.n}</h3>
@@ -396,7 +495,8 @@ export default function App(){
             <Btn onClick={function(){setRes(saved.res);if(saved.ans)setAns(saved.ans);go("result");}}>View My Results</Btn>
           </div></Card>
         )}
-        <div style={{marginBottom:28,textAlign:"center"}}>
+
+        <div style={{marginBottom:20,textAlign:"center"}}>
           <p style={{fontSize:16,lineHeight:1.8,color:"#6A4A52",margin:"0 0 6px",fontFamily:"'Cormorant',serif",fontStyle:"italic",fontWeight:300}}>Discover the colours that work in perfect harmony with your natural colouring.</p>
           <p style={{fontSize:8.5,letterSpacing:4,textTransform:"uppercase",color:"#C4899A",margin:0,fontFamily:"'Outfit',sans-serif"}}>Sci/ART 12-tone system</p>
         </div>
@@ -608,6 +708,29 @@ export default function App(){
             </Card>
 
             <Card mb={10}><Lbl>Makeup</Lbl><p style={{fontSize:14,color:"#2A1A1E",lineHeight:"1.6",margin:0,fontFamily:"'Outfit',sans-serif"}}>{p.mk}</p></Card>
+
+            <Card mb={10}><Lbl>Hair Colour Guide</Lbl>
+              {p.hair && (
+                <div>
+                  <div style={{marginBottom:16}}>
+                    <div style={{fontSize:10,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:10,fontFamily:"'Outfit',sans-serif"}}>Your Best Shades</div>
+                    <div style={{display:"flex",gap:12,flexWrap:"wrap",justifyContent:"center"}}>
+                      {p.hair.best.map(function(h,i){return(
+                        <div key={i} style={{textAlign:"center"}}>
+                          <div style={{width:44,height:44,borderRadius:"50%",background:h.h,border:"3px solid #FFFAF9",boxShadow:"0 0 0 1px rgba(139,45,63,.15)",margin:"0 auto 6px"}}/>
+                          <div style={{fontSize:10,color:"#5A424A",fontFamily:"'Outfit',sans-serif",maxWidth:60,lineHeight:1.3}}>{h.n}</div>
+                        </div>
+                      );})}
+                    </div>
+                  </div>
+                  <div style={{background:"rgba(139,45,63,.04)",borderRadius:10,padding:"12px 14px",marginBottom:12}}>
+                    <div style={{fontSize:10,letterSpacing:3,textTransform:"uppercase",color:"#8B2D3F",fontWeight:600,marginBottom:6,fontFamily:"'Outfit',sans-serif"}}>Avoid</div>
+                    <p style={{fontSize:13,color:"#5A424A",margin:0,lineHeight:1.6,fontFamily:"'Outfit',sans-serif"}}>{p.hair.avoid}</p>
+                  </div>
+                  <p style={{fontSize:13,color:"#5A424A",margin:0,lineHeight:1.7,fontStyle:"italic",fontFamily:"'Outfit',sans-serif"}}>"{p.hair.tip}"</p>
+                </div>
+              )}
+            </Card>
 
             <Card mb={10}><Lbl>Flow Position</Lbl>
               <p style={{fontSize:11,color:"#5A524A",lineHeight:"1.5",margin:"0 0 8px",textAlign:"center"}}><strong>{p.n}</strong> sits between {p.fl}.</p>
